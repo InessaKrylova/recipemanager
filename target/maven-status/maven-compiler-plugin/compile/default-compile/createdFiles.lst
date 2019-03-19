@@ -1,0 +1,15 @@
+DAL\CollectionDAO.class
+DAL\RateDAO.class
+DAL\StepDAO.class
+DAL\RecipeDAO.class
+Entities\Recipe.class
+Entities\Entity.class
+Test\App.class
+DAL\AuthorDAO.class
+Entities\Ingredient.class
+DAL\DBConnector.class
+Entities\Step.class
+Entities\Rate.class
+Entities\Author.class
+DAL\IngredientDAO.class
+Entities\Collection.class
