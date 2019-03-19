@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Entities.Author;
+import Entities.Ingredient;
 import Entities.Rate;
 import Entities.Recipe;
 import Entities.Step;
@@ -21,91 +22,7 @@ public class RecipeDAO {
         } catch (SQLException ex) {
             System.out.println("Exception while creating statement / getting the result");
         }
-    }
-    
-    public void addStep(Recipe recipe, Step step) {
-        recipe.addStep(step); 
-        DBConnector.statementWithRS(
-            "INSERT INTO step(description, number, recipe_id) "
-            + "VALUES("+step.getDescr()+", "+step.getNumber()+", "+recipe.getId()+")");
-    }
-    
-    public void removeStep(Recipe recipe, int stepId) {
-    	recipe.removeStep(stepId);
-        DBConnector.statementWithRS("DELETE FROM step WHERE id="+stepId);
-    }
-    
-    public void addRate(Recipe recipe, Rate rate) {
-        recipe.addRate(rate);
-        DBConnector.statementWithRS(
-            "INSERT INTO rate(ingredient_id, recipe_id, count, unit) "
-            + "VALUES("+rate.getIngr().getId()+", "+recipe.getId()+", "+rate.getCount()+", "+rate.getUnit()+")");
-    }
-    
-    public void removeRate(Recipe recipe, int rateId) {
-        recipe.removeRate(rateId);
-        DBConnector.statementWithRS("DELETE FROM rate WHERE id="+rateId);
-    }
-    
-    
-    public ArrayList<Recipe> getAllRecipes() {
-        return fillList(DBConnector.statementWithRS("SELECT * FROM recipe"));
-    }   
-    
-    public ArrayList<Recipe> getRecipesByAuthId(int authId) {
-        return fillList(DBConnector.statementWithRS("SELECT * FROM recipe WHERE auth_id="+authId));
-    }
-    
-    public Recipe getById(int id) {
-        Recipe r = null;
-        try(Statement st = DBConnector.getConnection().createStatement()){
-	        try (ResultSet rs = st.executeQuery("SELECT * FROM recipe WHERE id="+id)){
-	            while (rs.next()){                    
-	            	r = new Recipe(
-	            		id, 
-	            		new StepDAO().getStepsListByRecId(id),
-	                    new RateDAO().getRatesByRecId(id),
-	                    rs.getString("title"),
-	                    rs.getString("kitchen"),
-	                    rs.getString("cook_time"),
-	                    rs.getString("section"),
-	                    new AuthorDAO().getById(rs.getInt("auth_id")),
-	            		rs.getInt("caloricity"),
-	                    rs.getInt("serving_count")            
-	            	);                
-	            }
-	        } catch (SQLException | NullPointerException ex) {
-	        	System.out.println("Exception while executing query / getting result set");
-	        }
-	    } catch (SQLException ex) {
-	    	System.out.println("Exception while creating statement");
-	    } 
-        return r;
-    }
-    
-    private ArrayList<Recipe> fillList(ResultSet rs){
-        ArrayList<Recipe> list = new ArrayList<Recipe>();
-        try {
-            while (rs.next()){                     
-                int id = rs.getInt("id");
-            	list.add(new Recipe(
-        			id, 
-            		new StepDAO().getStepsListByRecId(id),
-                    new RateDAO().getRatesByRecId(id),
-                    rs.getString("title"),
-                    rs.getString("kitchen_id"),
-                    rs.getString("cook_time"),
-                    rs.getString("section"),
-                    new AuthorDAO().getById(rs.getInt("auth_id")),
-            		rs.getInt("caloricity"),
-                    rs.getInt("serving_count")
-                ));
-            }
-        } catch (SQLException ex) {
-            System.out.println("FAIL");
-        }
-        return list;    
-    }
+    }               
     
     public Recipe create(String title, String kitchen, String cook_time, String section, int serving_count, Author author, int caloricity) {
     	Recipe r =  null;
@@ -137,9 +54,114 @@ public class RecipeDAO {
 
         return r;
     }
-}
+    
+    public Recipe getById(int id) {
+        Recipe r = null;
+        try(Statement st = DBConnector.getConnection().createStatement()){
+	        try (ResultSet rs = st.executeQuery("SELECT * FROM recipe WHERE id="+id)){
+	            while (rs.next()){                    
+	            	r = new Recipe(
+	            		id, 
+	            		new ArrayList<Step>(),//new StepDAO().getStepsListByRecId(id),
+	            		new ArrayList<Rate>(),//new RateDAO().getRatesByRecId(id),
+	                    rs.getString("title"),
+	                    rs.getString("kitchen"),
+	                    rs.getString("cook_time"),
+	                    rs.getString("section"),
+	                    new AuthorDAO().getById(rs.getInt("author")),
+	            		rs.getInt("caloricity"),
+	                    rs.getInt("serving_count")            
+	            	); 
+	            	System.out.println("Recipe with id="+id+" is found");
+	            }
+	        } catch (SQLException | NullPointerException ex) {
+	        	System.out.println("Exception while executing query / getting result set");
+	        }
+	    } catch (SQLException ex) {
+	    	System.out.println("Exception while creating statement");
+	    } 
+        return r;
+    }
+    
+    public List<Recipe> getAllRecipes() {
+        List<Recipe> list = new ArrayList<Recipe>();
+        try(Statement st = DBConnector.getConnection().createStatement()){
+	        try (ResultSet rs = st.executeQuery("SELECT * FROM recipe")){
+	            while (rs.next()){                    
+	            	list.add(new Recipe(
+	            		rs.getInt("id"), 
+	            		new ArrayList<Step>(),//new StepDAO().getStepsListByRecId(id),
+	            		new ArrayList<Rate>(),//new RateDAO().getRatesByRecId(id),
+	                    rs.getString("title"),
+	                    rs.getString("kitchen"),
+	                    rs.getString("cook_time"),
+	                    rs.getString("section"),
+	                    new AuthorDAO().getById(rs.getInt("author")),
+	            		rs.getInt("caloricity"),
+	                    rs.getInt("serving_count")            
+	            	)); 	            	
+	            }
+	        } catch (SQLException | NullPointerException ex) {
+	        	System.out.println("Exception while executing query / getting result set");
+	        }
+	    } catch (SQLException ex) {
+	    	System.out.println("Exception while creating statement");
+	    } 
+        System.out.println(list.size()+" recipes found");
+        return list;
+    }
 
-/*    
+    public void addStep(Recipe recipe, int number, String descr) {
+	    Step step = new StepDAO().create(recipe.getId(), number, descr);
+    	recipe.addStep(step); 
+	}
+
+	public void removeStep(Recipe recipe, int stepId) {	
+	    new StepDAO().remove(stepId);
+	    recipe.removeStep(stepId);
+	}
+
+	public void addRate(Recipe recipe, Ingredient ingr, double count) {
+	    Rate rate = new RateDAO().create(recipe, ingr, count);
+		recipe.addRate(rate);	    
+	}
+	
+	public void removeRate(Recipe recipe, int rateId) {
+	    new RateDAO().remove(rateId);
+	    recipe.removeRate(rateId);
+	} 
+
+}
+	/*public void setTitle(Recipe recipe, String title) {    
+		recipe.setTitle(title);
+		DBConnector.statementWithRS("UPDATE recipe SET title=\'"+title+"\' WHERE id="+recipe.getId());
+	}
+
+	public void setKitchen(Recipe recipe, String kitchen) {  
+		recipe.setKitchen(kitchen);  
+		DBConnector.statementWithRS("UPDATE recipe SET kitchen="+kitchen+" WHERE id="+recipe.getId());
+	}
+
+	public void setCookTime(Recipe recipe, String time) {    
+		recipe.setCookTime(time);
+		DBConnector.statementWithRS("UPDATE recipe SET cook_time=\'"+time+"\' WHERE id="+recipe.getId());
+	}
+
+	public void setSection(Recipe recipe, String section) {    
+		recipe.setSection(section);    
+		DBConnector.statementWithRS("UPDATE recipe SET section="+section+" WHERE id="+recipe.getId());
+	}
+
+	public void setCalor(Recipe recipe, int caloricity) {   
+		recipe.setCaloricity(caloricity);    
+		DBConnector.statementWithRS("UPDATE recipe SET caloricity="+caloricity+" WHERE id="+recipe.getId());
+	} 
+
+	public void setServingCount(Recipe recipe, int servCount) {   
+		recipe.setServingCount(servCount);
+		DBConnector.statementWithRS("UPDATE recipe SET serving_count="+servCount+" WHERE id="+recipe.getId());
+	}
+  
     public ArrayList<Recipe> searchBy(ArrayList<String> keywords, ArrayList<String> antiwords) {
         ArrayList<Recipe> result1 = new ArrayList<Recipe>();
         ArrayList<Recipe> result2 = new ArrayList<Recipe>();
@@ -210,34 +232,5 @@ public class RecipeDAO {
         
         return result2;
     }  
-}
-public void setTitle(Recipe recipe, String title) {    
-recipe.setTitle(title);
-DBConnector.statementWithRS("UPDATE recipe SET title=\'"+title+"\' WHERE id="+recipe.getId());
-}
-
-public void setKitchen(Recipe recipe, String kitchen) {  
-recipe.setKitchen(kitchen);  
-DBConnector.statementWithRS("UPDATE recipe SET kitchen="+kitchen+" WHERE id="+recipe.getId());
-}
-
-public void setCookTime(Recipe recipe, String time) {    
-recipe.setCookTime(time);
-DBConnector.statementWithRS("UPDATE recipe SET cook_time=\'"+time+"\' WHERE id="+recipe.getId());
-}
-
-public void setSection(Recipe recipe, String section) {    
-recipe.setSection(section);    
-DBConnector.statementWithRS("UPDATE recipe SET section="+section+" WHERE id="+recipe.getId());
-}
-
-public void setCalor(Recipe recipe, int caloricity) {   
-recipe.setCaloricity(caloricity);    
-DBConnector.statementWithRS("UPDATE recipe SET caloricity="+caloricity+" WHERE id="+recipe.getId());
-} 
-
-public void setServingCount(Recipe recipe, int servCount) {   
-recipe.setServingCount(servCount);
-DBConnector.statementWithRS("UPDATE recipe SET serving_count="+servCount+" WHERE id="+recipe.getId());
-}*/
+*/
 

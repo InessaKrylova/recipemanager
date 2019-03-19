@@ -45,19 +45,9 @@ public class StepDAO {
             System.out.println("FAIL");
         }
         return list;
-    }
+    }     
     
-    public void setDescr(Step step, String descr) {    
-        step.setDescr(descr);  
-        DBConnector.statementWithRS("UPDATE step SET description=\'"+descr+"\' WHERE id="+step.getId());
-    }
-    
-    public void setNumber(Step step, int number) {  
-        step.setNumber(number);   
-        DBConnector.statementWithRS("UPDATE step SET number="+number+" WHERE id="+step.getId());
-    }  
-    
-    public Step create(int recipeId, int number, String descr) {        
+    protected Step create(int recipeId, int number, String descr) {        
         String query = "INSERT INTO step(description, number, recipe_id) "
             + "VALUES(\'" + descr + "\', " + number + ", " + recipeId + ") RETURNING id;";
         Step step = null;

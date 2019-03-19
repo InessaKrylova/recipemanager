@@ -5,21 +5,18 @@ public class Rate extends Entity {
 	private int recipeId;  
     private Ingredient ingr;   
     private double count;
-    private String unit;
     
-    public Rate(int id, int recipeId, Ingredient ingr, double count, String unit) {
+    public Rate(int id, int recipeId, Ingredient ingr, double count) {
 		super(id);
 		this.recipeId = recipeId;
 		this.ingr = ingr;
-		this.count = count;
-		this.unit = unit;
+		this.count = count;;
 	}
     
     public Rate() {
     	super();
     }
-    
-    
+       
 	public int getRecipeId() {
 		return recipeId;
 	}
@@ -37,13 +34,5 @@ public class Rate extends Entity {
 	}
 	public void setCount(double count) {
 		this.count = count;
-	}
-	public String getUnit() {
-		return unit;
-	}
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
-    
-    
+	}   
 }

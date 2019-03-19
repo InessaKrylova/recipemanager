@@ -20,8 +20,7 @@ public class RateDAO {
                 		rs.getInt("id"),
                 		recipeId, 
                 		ingr, 
-                		rs.getDouble("count"),
-                		rs.getString("unit")
+                		rs.getDouble("count")
                 ));
             }
         } catch (SQLException ex) {
@@ -40,8 +39,7 @@ public class RateDAO {
                 		id,
                 		rs.getInt("recipe_id"),
                 		ingr, 
-                		rs.getDouble("count"),
-                		rs.getString("unit")
+                		rs.getDouble("count")
                 );
             }
         } catch (SQLException ex) {
@@ -57,12 +55,7 @@ public class RateDAO {
     
     public void setCount(Rate rate, double count) {  
         rate.setCount(count);
-        DBConnector.statementWithRS("UPDATE rate SET count="+count+" WHERE id="+rate.getId());
-    }
-   
-    public void setUnit(Rate rate, String unit) {    
-        rate.setUnit(unit);
-        DBConnector.statementWithRS("UPDATE rate SET unit="+unit+" WHERE id="+rate.getId());
+        DBConnector.statementWithRS("UPDATE rate SET count="+count+" WHERE id="+rate.getId());   
     }
     
     public List<Rate> getAllRecipeRates(Recipe recipe) {
@@ -77,8 +70,7 @@ public class RateDAO {
                 		rs.getInt("id"),
                 		recipe.getId(), 
                 		ingr, 
-                		rs.getDouble("count"),
-                		rs.getString("unit")
+                		rs.getDouble("count")
                 ));
             }
         } catch (SQLException ex) {
@@ -87,10 +79,10 @@ public class RateDAO {
         return list;
     }
     
-    public Rate create(Recipe recipe, Ingredient ingr, double count, String unit) {
+    public Rate create(Recipe recipe, Ingredient ingr, double count) {
         ResultSet rs = DBConnector.statementWithRS(
             "INSERT INTO rate(ingredient_id, recipe_id, count, unit) "+
-            "VALUES("+ingr.getId()+", "+recipe.getId()+", "+count+", "+unit+") RETURNING id;"
+            "VALUES("+ingr.getId()+", "+recipe.getId()+", "+count+") RETURNING id;"
         );
         Rate rate = null;
         try {
@@ -99,8 +91,7 @@ public class RateDAO {
             		rs.getInt("id"),
             		recipe.getId(),
             		ingr,
-            		count,
-            		unit
+            		count
             	);
             }
         } catch (SQLException ex) {

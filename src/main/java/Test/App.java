@@ -15,7 +15,7 @@ public class App
         DBConnector.connect();
         
         RecipeDAO rDao = new RecipeDAO();
-        rDao.create("Шарлотка яблочная", "Русская", "40 мин", "Десерт", 8, new AuthorDAO().getById(16), 410);
+        rDao.remove(1);
         
         DBConnector.exit();
     }
