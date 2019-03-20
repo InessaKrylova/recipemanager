@@ -69,36 +69,6 @@ public class Recipe extends Entity {
              }
          }
     }
-   
-	/*public String createImagePathFrom(String sourcePath) {
-	    String imagePath = null;
-		try {
-	        if (sourcePath.equals("0")) {
-	            imagePath = "0";    
-	        } else { 
-	            int i = sourcePath.lastIndexOf('.');
-	            String extension = (i>0) 
-	                 ? ("."+sourcePath.substring(i+1)) : "";  
-	            imagePath = "/recipes/"+this.getId()+extension; 
-	
-	            System.out.println(sourcePath+" ===> "+imagePath);
-	            
-	            OutputStream os = new FileOutputStream(new File(imagePath));
-	            InputStream is = new FileInputStream(new File(sourcePath));       
-	            byte[] buffer = new byte[1024];
-	            int length;
-	            while ((length = is.read(buffer)) > 0) {
-	                os.write(buffer, 0, length);
-	            }
-	            System.out.println("success");
-	            is.close();
-	            os.close();
-	        }   
-	    } catch (Exception e) {
-	    	System.out.println("! Can`t get image path for recipe with id="+this.getId());
-	    }
-		return imagePath;
-	}*/
     
 	public List<Step> getSteps() {
 		return steps;

@@ -1,8 +1,7 @@
-package Test;
+package recipemanager;
 
-import java.util.Arrays;
-
-import DAL.*;
+import DAL.DBConnector;
+import DAL.RateDAO;
 
 /**
  * Hello world!
@@ -13,10 +12,8 @@ public class App
     public static void main( String[] args )
     {
         DBConnector.connect();
-        
-        RecipeDAO rDao = new RecipeDAO();
-        rDao.remove(1);
-        
+        RateDAO rDao = new RateDAO();
+        rDao.create(2, 11, 4.0);
         DBConnector.exit();
     }
 }

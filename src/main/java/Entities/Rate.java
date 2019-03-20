@@ -3,13 +3,13 @@ package Entities;
 public class Rate extends Entity {	
 
 	private int recipeId;  
-    private Ingredient ingr;   
+    private Ingredient ingredient;   
     private double count;
     
-    public Rate(int id, int recipeId, Ingredient ingr, double count) {
+    public Rate(int id, int recipeId, Ingredient ingredient, double count) {
 		super(id);
 		this.recipeId = recipeId;
-		this.ingr = ingr;
+		this.ingredient = ingredient;
 		this.count = count;;
 	}
     
@@ -24,10 +24,10 @@ public class Rate extends Entity {
 		this.recipeId = recipeId;
 	}
 	public Ingredient getIngr() {
-		return ingr;
+		return ingredient;
 	}
-	public void setIngr(Ingredient ingr) {
-		this.ingr = ingr;
+	public void setIngr(Ingredient ingredient) {
+		this.ingredient = ingredient;
 	}
 	public double getCount() {
 		return count;
