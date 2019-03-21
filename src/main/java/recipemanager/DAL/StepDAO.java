@@ -1,4 +1,4 @@
-package DAL;
+package recipemanager.DAL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-import Entities.Step;
+import recipemanager.Entities.Step;
 
 public class StepDAO {
 	
@@ -21,7 +21,7 @@ public class StepDAO {
 	
 	public TreeMap<Integer,Step> getStepsMapByRecId(int recipeId) {
         TreeMap<Integer, Step> map = new TreeMap<Integer, Step>();
-        try (Statement statement = DBConnector.getConnection().createStatement()){
+        try (Statement statement = DBConnector.openConnection().createStatement()){
         	try(ResultSet resultSet = statement.executeQuery(GET_STEP_BY_ID+recipeId)) {       
 	            while(resultSet.next()) {
 	                Step step = new Step(
@@ -44,7 +44,7 @@ public class StepDAO {
     
     public List<Step> getStepsListByRecId(int recipeId) {
         List<Step> list = new ArrayList<>();
-        try (Statement statement = DBConnector.getConnection().createStatement()){
+        try (Statement statement = DBConnector.openConnection().createStatement()){
         	try(ResultSet resultSet = statement.executeQuery(GET_RECIPE_STEPS+recipeId)) {       
 	            while(resultSet.next()) {
 	                Step step = new Step(
@@ -67,7 +67,7 @@ public class StepDAO {
     
     protected Step create(int recipeId, int number, String description) {        
     	Step step = null;
-    	try(PreparedStatement statement = DBConnector.getConnection().prepareStatement(CREATE_STEP)){
+    	try(PreparedStatement statement = DBConnector.openConnection().prepareStatement(CREATE_STEP)){
     		statement.setString(1, description);
     		statement.setInt(2, number);
     		statement.setInt(3, recipeId);
@@ -84,7 +84,12 @@ public class StepDAO {
         return step;
     }
     
-    public void remove(int id) {
-        DBConnector.statementWithRS(REMOVE_STEP+id);
-    }
+    public void remove(int id){
+    	try (Statement statement = DBConnector.openConnection().createStatement()) {
+	    	statement.execute(REMOVE_STEP+id);
+	    	System.out.println("Step with id="+id+" successfully removed");
+        } catch (SQLException ex) {
+            System.out.println(EXCEPTION_IN_STATEMENT);
+        }
+    }       
 }

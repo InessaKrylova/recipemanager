@@ -1,4 +1,4 @@
-package DAL;
+package recipemanager.DAL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,9 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import Entities.Ingredient;
-import Entities.Rate;
-import Entities.Recipe;
+import recipemanager.Entities.Ingredient;
+import recipemanager.Entities.Rate;
 
 public class RateDAO {
 	private static final String EXCEPTION_IN_RESULTSET = "Exception while executing query / getting result set";
@@ -22,7 +21,7 @@ public class RateDAO {
 	
 	public List<Rate> getRatesByRecId(int recipeId) {
         List<Rate> list = new ArrayList<>();
-        try (Statement statement = DBConnector.getConnection().createStatement()) {
+        try (Statement statement = DBConnector.openConnection().createStatement()) {
 	        try (ResultSet resultSet = statement.executeQuery(GET_RATES_BY_RECIPE+recipeId)) {
 	            while(resultSet.next()) {
 	            	Ingredient ingredient = new IngredientDAO().getById(resultSet.getInt("ingredient_id"));
@@ -44,7 +43,7 @@ public class RateDAO {
 
     public Rate getById(int id) {
     	Rate rate = null;
-    	try (Statement statement = DBConnector.getConnection().createStatement()) {	        
+    	try (Statement statement = DBConnector.openConnection().createStatement()) {
 	        try (ResultSet resultSet = statement.executeQuery(GET_RATE_BY_ID+id)){
 	            while(resultSet.next()) {  
 	            	Ingredient ingredient = new IngredientDAO().getById(resultSet.getInt("ingredient_id"));           	
@@ -76,7 +75,7 @@ public class RateDAO {
     
     public List<Rate> getAllRates() {
         List<Rate> list = new ArrayList<>();
-        try(Statement statement = DBConnector.getConnection().createStatement()) {
+        try(Statement statement = DBConnector.openConnection().createStatement()) {
 	        try(ResultSet resultSet = statement.executeQuery(GET_ALL_RATES)) {
 	            while(resultSet.next()) {
 	            	Ingredient ingredient = new IngredientDAO().getById(resultSet.getInt("ingredient_id"));
@@ -98,7 +97,7 @@ public class RateDAO {
     
     public Rate create(int recipeId, int ingredientId, double count) {
         Rate rate = null;
-    	try (PreparedStatement statement = DBConnector.getConnection().prepareStatement(CREATE_RATE)) {    
+    	try (PreparedStatement statement = DBConnector.openConnection().prepareStatement(CREATE_RATE)) {
 	        statement.setInt(1, ingredientId);
 	        statement.setInt(2, recipeId);
 	        statement.setDouble(3, count);
@@ -121,7 +120,7 @@ public class RateDAO {
     }    
     
 	public void remove(int id){
-    	try (Statement statement = DBConnector.getConnection().createStatement()) {
+    	try (Statement statement = DBConnector.openConnection().createStatement()) {
 	    	statement.execute(REMOVE_RATE+id);
 	    	System.out.println("Rate with id="+id+" successfully removed");
         } catch (SQLException ex) {

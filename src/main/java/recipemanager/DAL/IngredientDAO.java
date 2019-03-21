@@ -1,9 +1,9 @@
-package DAL;
+package recipemanager.DAL;
 
 import java.sql.*;
 import java.util.*;
 
-import Entities.Ingredient;
+import recipemanager.Entities.Ingredient;
 
 public class IngredientDAO {
    
@@ -17,7 +17,7 @@ public class IngredientDAO {
 	
 	public Ingredient getById(int id) {
     	Ingredient ingredient = null;
-        try (Statement statement = DBConnector.getConnection().createStatement())  {
+        try (Statement statement = DBConnector.openConnection().createStatement())  {
 	        try (ResultSet resultSet = statement.executeQuery(GET_INGREDIENT_BY_ID+id)) {
 	            while(resultSet.next()) {
 	            	ingredient = new Ingredient(id, resultSet.getString("title"), resultSet.getInt("caloricity"));	            	
@@ -36,7 +36,7 @@ public class IngredientDAO {
 
     public List<Ingredient> getAllIngredients() {
     	List<Ingredient> list = new ArrayList<>();
-    	try (Statement statement = DBConnector.getConnection().createStatement())  {
+    	try (Statement statement = DBConnector.openConnection().createStatement())  {
 	        try (ResultSet resultSet = statement.executeQuery(GET_ALL_INGREDIENTS)) {        	
 	            while(resultSet.next()) {   
 	                list.add(new Ingredient(
@@ -52,15 +52,15 @@ public class IngredientDAO {
 	        System.out.println(EXCEPTION_IN_STATEMENT);
 	    }
     	System.out.println("All ingredients:");
-    	for (Ingredient ingr : list) {
-    		System.out.println(ingr.getId()+" "+ingr.getTitle()+" "+ingr.getCaloricity());
+    	for (Ingredient ingredient : list) {
+    		System.out.println(ingredient.getId()+" "+ingredient.getTitle()+" "+ingredient.getCaloricity());
     	}
         return list;
     }
 
     public Ingredient getByTitle(String title) {
         Ingredient ingredient = null;
-        try (PreparedStatement statement = DBConnector.getConnection().prepareStatement(GET_BY_TITLE))  {
+        try (PreparedStatement statement = DBConnector.openConnection().prepareStatement(GET_BY_TITLE))  {
 	        statement.setString(1, title);
         	try (ResultSet resultSet = statement.executeQuery()) {
 	            while(resultSet.next()) {
@@ -80,7 +80,7 @@ public class IngredientDAO {
     
     public Ingredient create(String title, int caloricity) {
         Ingredient ingredient = null;
-    	try (PreparedStatement statement = DBConnector.getConnection().prepareStatement(CREATE_INGREDIENT)) {
+    	try (PreparedStatement statement = DBConnector.openConnection().prepareStatement(CREATE_INGREDIENT)) {
 	        statement.setString(1, title);
 	        statement.setInt(2, caloricity);
     		try (ResultSet resultSet = statement.executeQuery()) {
@@ -98,7 +98,7 @@ public class IngredientDAO {
     }     
     
     public void remove(int id){
-    	try (Statement statement = DBConnector.getConnection().createStatement()) {
+    	try (Statement statement = DBConnector.openConnection().createStatement()) {
     		statement.execute(REMOVE_INGREDIENT+id);
 	    	System.out.println("Ingredient with id="+id+" successfully removed");
         } catch (SQLException ex) {

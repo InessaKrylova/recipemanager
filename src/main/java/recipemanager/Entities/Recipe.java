@@ -1,4 +1,4 @@
-package Entities;
+package recipemanager.Entities;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package recipemanager;
+package recipemanager.common;
 
-import DAL.DBConnector;
-import DAL.RateDAO;
+import recipemanager.DAL.DBConnector;
+import recipemanager.DAL.RateDAO;
 
 /**
  * Hello world!

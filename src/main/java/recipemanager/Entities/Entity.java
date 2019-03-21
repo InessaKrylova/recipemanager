@@ -1,4 +1,4 @@
-package Entities;
+package recipemanager.Entities;
 
 public class Entity {
 	private int id;

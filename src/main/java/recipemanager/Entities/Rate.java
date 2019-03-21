@@ -1,4 +1,4 @@
-package Entities;
+package recipemanager.Entities;
 
 public class Rate extends Entity {	
 
