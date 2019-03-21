@@ -22,7 +22,7 @@ public class RecipeDAO {
 	private static final String REMOVE_RECIPE = "DELETE FROM recipe WHERE id=";
 	
 	public void remove(int id){
-    	try (Statement statement = DBConnector.openConnection().createStatement()) {
+    	try (Statement statement = DBConnector.getConnection().createStatement()) {
 	    	statement.execute(REMOVE_RECIPE+id);
 	    	System.out.println("Recipe with id="+id+" successfully removed");
         } catch (SQLException ex) {
@@ -32,7 +32,7 @@ public class RecipeDAO {
     
     public Recipe create(String title, String kitchen, String cookTime, String section, int servingCount, Author author, int caloricity) {
     	Recipe recipe =  null;   
-    	try (PreparedStatement statement = DBConnector.openConnection().prepareStatement(CREATE_RECIPE)) {
+    	try (PreparedStatement statement = DBConnector.getConnection().prepareStatement(CREATE_RECIPE)) {
     		statement.setString(1, title);
     		statement.setString(2, kitchen);
     		statement.setString(3, cookTime);
@@ -58,7 +58,7 @@ public class RecipeDAO {
     
     public Recipe getById(int id) {
         Recipe r = null;
-        try(Statement st = DBConnector.openConnection().createStatement()){
+        try(Statement st = DBConnector.getConnection().createStatement()){
 	        try (ResultSet rs = st.executeQuery(GET_RECIPE_BY_ID+id)){
 	            while (rs.next()){                    
 	            	r = new Recipe(
@@ -86,7 +86,7 @@ public class RecipeDAO {
     
     public List<Recipe> getAllRecipes() {
         List<Recipe> list = new ArrayList<>();
-        try(Statement statement = DBConnector.openConnection().createStatement()){
+        try(Statement statement = DBConnector.getConnection().createStatement()){
 	        try (ResultSet resultSet = statement.executeQuery("SELECT * FROM recipe")){
 	            while (resultSet.next()){                    
 	            	list.add(new Recipe(

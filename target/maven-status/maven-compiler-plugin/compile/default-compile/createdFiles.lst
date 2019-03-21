@@ -1,0 +1,13 @@
+recipemanager\common\App.class
+recipemanager\Entities\Step.class
+recipemanager\Entities\Author.class
+recipemanager\Entities\Rate.class
+recipemanager\Entities\Ingredient.class
+recipemanager\DAL\RateDAO.class
+recipemanager\DAL\StepDAO.class
+recipemanager\DAL\IngredientDAO.class
+recipemanager\Entities\Recipe.class
+recipemanager\DAL\AuthorDAO.class
+recipemanager\DAL\DBConnector.class
+recipemanager\Entities\Entity.class
+recipemanager\DAL\RecipeDAO.class

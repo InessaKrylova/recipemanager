@@ -19,18 +19,18 @@ public class AuthorDAO {
 			
 	public List<Author> getAllAuthors() {
         List<Author> list = new ArrayList<Author>();
-			try (Statement statement = DBConnector.openConnection().createStatement()) {
-				try (ResultSet resultSet = statement.executeQuery(GET_ALL_AUTHORS)) {
-					while (resultSet.next()) {
-						Author author = new Author(resultSet.getInt("id"), resultSet.getString("fio"));
-						list.add(author);
-					}
-				} catch (SQLException ex) {
-					System.out.println(EXCEPTION_IN_RESULTSET);
+		try (Statement statement = DBConnector.getConnection().createStatement()) {
+			try (ResultSet resultSet = statement.executeQuery(GET_ALL_AUTHORS)) {
+				while (resultSet.next()) {
+					Author author = new Author(resultSet.getInt("id"), resultSet.getString("fio"));
+					list.add(author);
 				}
 			} catch (SQLException ex) {
-				System.out.println(EXCEPTION_IN_STATEMENT);
+				System.out.println(EXCEPTION_IN_RESULTSET);
 			}
+		} catch (SQLException ex) {
+			System.out.println(EXCEPTION_IN_STATEMENT);
+		}
         System.out.println("Authors list:");
         for (Author author : list) {
         	System.out.println(author.getId()+". "+author.getFio());
@@ -41,7 +41,7 @@ public class AuthorDAO {
 	
     public Author getById(int id) {
         Author author = null;
-        try (Statement statement = DBConnector.openConnection().createStatement()){
+        try (Statement statement = DBConnector.getConnection().createStatement()){
 	        try (ResultSet resultSet = statement.executeQuery(GET_AUTHOR_BY_ID+id)){	            
 	        	while(resultSet.next()) {
 	            	author = new Author(id, resultSet.getString("fio"));
@@ -59,7 +59,8 @@ public class AuthorDAO {
     
     public Author create(String fio) {
     	 Author author = null;
-    	 try (PreparedStatement statement = DBConnector.openConnection().prepareStatement(CREATE_AUTHOR)){
+    	 try (Connection connection = DBConnector.openConnection(); 
+    		  PreparedStatement statement = connection.prepareStatement(CREATE_AUTHOR)){
  	         statement.setString(1, fio);
     		 try (ResultSet resultSet = statement.executeQuery()) {
 	            while(resultSet.next()) {
@@ -68,7 +69,7 @@ public class AuthorDAO {
  	        } catch (SQLException ex) {
  	        	System.out.println(EXCEPTION_IN_RESULTSET);
  	        }
-    	 } catch (SQLException ex) {
+    	 } catch (Exception ex) {
     		 System.out.println(EXCEPTION_IN_STATEMENT);
     	 } 
     	 System.out.println(author == null 
