@@ -14,22 +14,20 @@ public class AuthorDAO {
 	private static final String GET_ALL_AUTHORS = "SELECT * FROM author";
 	private static final String GET_AUTHOR_BY_ID ="SELECT fio FROM author WHERE id=";
 	private static final String CREATE_AUTHOR = "INSERT INTO author (fio) VALUES (?) RETURNING id;";
-	private static final String EXCEPTION_IN_RESULTSET = "Exception while executing query / getting result set";
+	private static final String EXCEPTION_IN_RESULTSET = "Exception while opening connection / executing query / getting result set";
 	private static final String EXCEPTION_IN_STATEMENT = "Exception while creating statement";
 			
 	public List<Author> getAllAuthors() {
         List<Author> list = new ArrayList<Author>();
-		try (Statement statement = DBConnector.getConnection().createStatement()) {
-			try (ResultSet resultSet = statement.executeQuery(GET_ALL_AUTHORS)) {
-				while (resultSet.next()) {
-					Author author = new Author(resultSet.getInt("id"), resultSet.getString("fio"));
-					list.add(author);
-				}
-			} catch (SQLException ex) {
-				System.out.println(EXCEPTION_IN_RESULTSET);
+		try (Connection connection = DBConnector.openConnection();
+			 Statement statement = connection.createStatement();
+			 ResultSet resultSet = statement.executeQuery(GET_ALL_AUTHORS)) {
+			while (resultSet.next()) {
+				Author author = new Author(resultSet.getInt("id"), resultSet.getString("fio"));
+				list.add(author);
 			}
-		} catch (SQLException ex) {
-			System.out.println(EXCEPTION_IN_STATEMENT);
+		} catch (Exception e) {
+			System.out.println(EXCEPTION_IN_RESULTSET);
 		}
         System.out.println("Authors list:");
         for (Author author : list) {
@@ -37,22 +35,19 @@ public class AuthorDAO {
         }
         return list;            
     }
-    
-	
+ 	
     public Author getById(int id) {
         Author author = null;
-        try (Statement statement = DBConnector.getConnection().createStatement()){
-	        try (ResultSet resultSet = statement.executeQuery(GET_AUTHOR_BY_ID+id)){	            
-	        	while(resultSet.next()) {
-	            	author = new Author(id, resultSet.getString("fio"));
-	            	System.out.println("Author is found: "+author.getId()+". "+author.getFio());
-	            }
-	        } catch (SQLException | NullPointerException ex) {
-	        	System.out.println(EXCEPTION_IN_RESULTSET);
-	        }
-        } catch (SQLException ex) {
-        	System.out.println(EXCEPTION_IN_STATEMENT);
-        } 
+        try (Connection connection = DBConnector.openConnection();
+   			 Statement statement = connection.createStatement();
+        	 ResultSet resultSet = statement.executeQuery(GET_AUTHOR_BY_ID+id)){	            
+        	while(resultSet.next()) {
+            	author = new Author(id, resultSet.getString("fio"));
+            	System.out.println("Author is found: "+author.getId()+". "+author.getFio());
+            }
+        } catch (Exception ex) {
+        	System.out.println(EXCEPTION_IN_RESULTSET);
+        }
         if (author == null) System.out.println("Author is not found");
         return author;
     }

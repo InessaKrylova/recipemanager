@@ -12,10 +12,6 @@ public class DBConnector {
     public static void closeConnection() throws Exception {
         con.close();
     }
-
-    public static Connection getConnection() {
-    	return con;
-    }
     
     public static Connection openConnection() throws Exception {
         Properties property = new Properties();
@@ -39,6 +35,11 @@ public class DBConnector {
         }  catch (Exception e) {
             System.out.println("Error of connection! "+ e.getMessage());
         }
+    }
+    
+     
+    public static Connection getConnection() {
+    	return con;
     }
     
     public static void exit() {
