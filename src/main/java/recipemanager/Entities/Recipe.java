@@ -1,5 +1,6 @@
 package recipemanager.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recipe extends Entity {   
@@ -39,6 +40,9 @@ public class Recipe extends Entity {
 		this.author = author;
 		this.caloricity = caloricity;
 		this.servingCount = servingCount;
+		this.steps = new ArrayList<Step>();
+		this.rates = new ArrayList<Rate>();
+		
 	}
 
     public Recipe() {
