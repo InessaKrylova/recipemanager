@@ -28,5 +28,15 @@ public class Ingredient extends Entity{
 	
 	public void setCaloricity(int caloricity) {
 		this.caloricity = caloricity;
+	}
+
+	@Override
+	public void show() {
+		StringBuilder sb = new StringBuilder("\nIngredient: {");
+		sb.append("id=").append(this.getId())
+		  .append(", title=").append(this.getTitle())
+		  .append(", caloricity=").append(this.getCaloricity())
+		  .append("}\n");
+		System.out.println(sb.toString());
 	}      
 }

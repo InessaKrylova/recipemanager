@@ -39,5 +39,16 @@ public class Step extends Entity{
 
 	public void setRecipeId(int recipeId) {
 		this.recipeId = recipeId;
+	}
+
+	@Override
+	public void show() {
+		StringBuilder sb = new StringBuilder("\nStep: {");
+		sb.append("id=").append(this.getId())
+		  .append(", number=").append(this.getNumber())
+		  .append(", description=").append(this.getDescription())
+		  .append(", recipeId=").append(this.getRecipeId())
+		  .append("}\n");
+		System.out.println(sb.toString());
 	}  
 }

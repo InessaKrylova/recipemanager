@@ -31,7 +31,7 @@ public class AuthorDAO {
 		}
         System.out.println("Authors list:");
         for (Author author : list) {
-        	System.out.println(author.getId()+". "+author.getFio());
+        	author.show();
         }
         return list;            
     }
@@ -43,12 +43,14 @@ public class AuthorDAO {
         	 ResultSet resultSet = statement.executeQuery(GET_AUTHOR_BY_ID+id)){	            
         	while(resultSet.next()) {
             	author = new Author(id, resultSet.getString("fio"));
-            	System.out.println("Author is found: "+author.getId()+". "+author.getFio());
             }
         } catch (Exception ex) {
         	System.out.println(EXCEPTION_IN_RESULTSET);
         }
-        if (author == null) System.out.println("Author is not found");
+        if (author == null) 
+        	System.out.println("Author is not found");
+        else 
+        	author.show();
         return author;
     }
     
@@ -67,9 +69,10 @@ public class AuthorDAO {
     	 } catch (Exception ex) {
     		 System.out.println(EXCEPTION_IN_STATEMENT);
     	 } 
-    	 System.out.println(author == null 
-    			 ? "Author is not created"
-    			 : "Author "+fio+" is successfully created with id="+author.getId());
+    	 if (author == null) 
+         	System.out.println("Author is not created");
+         else 
+         	author.show();
          return author;
     }
 }

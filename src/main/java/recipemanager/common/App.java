@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        IngredientDAO iDao = new IngredientDAO();
-        iDao.remove(14);
+        RateDAO rDao = new RateDAO();
+        rDao.remove(9);
     }
 }

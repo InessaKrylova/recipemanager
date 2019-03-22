@@ -26,9 +26,10 @@ public class IngredientDAO {
         } catch (Exception ex) {
             System.out.println(EXCEPTION_IN_RESULTSET);
         }
-        System.out.println(ingredient==null
-        		? "Ingredient with id="+id+" is not found"
-        		: "Ingredient found: "+ ingredient.getId()+" "+ingredient.getTitle()+" "+ingredient.getCaloricity());
+        if (ingredient == null) 
+        	System.out.println("Ingredient is not found");
+        else 
+        	ingredient.show();
         return ingredient;
     }
 
@@ -49,7 +50,7 @@ public class IngredientDAO {
         }
     	System.out.println("All ingredients:");
     	for (Ingredient ingredient : list) {
-    		System.out.println(ingredient.getId()+" "+ingredient.getTitle()+" "+ingredient.getCaloricity());
+    		ingredient.show();
     	}
         return list;
     }
@@ -69,9 +70,10 @@ public class IngredientDAO {
 	    } catch (Exception ex) {
 	        System.out.println(EXCEPTION_IN_STATEMENT);
 	    }
-        System.out.println(ingredient==null
-        		? "Ingredient with title"+title+" is not found"
-        		: "Ingredient found: "+ ingredient.getId()+" "+ingredient.getTitle()+" "+ingredient.getCaloricity());
+        if (ingredient == null) 
+        	System.out.println("Ingredient is not found");
+        else 
+        	ingredient.show();
         return ingredient;
     }
     
@@ -91,7 +93,10 @@ public class IngredientDAO {
         } catch (Exception ex) {
             System.out.println(EXCEPTION_IN_STATEMENT);
         }
-    	System.out.println("Ingredient successfully created with id="+ingredient.getId());
+        if (ingredient == null) 
+        	System.out.println("Ingredient is not created");
+        else 
+        	ingredient.show();
         return ingredient;
     }     
     

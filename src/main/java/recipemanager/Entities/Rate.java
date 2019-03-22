@@ -34,5 +34,16 @@ public class Rate extends Entity {
 	}
 	public void setCount(double count) {
 		this.count = count;
-	}   
+	}
+	
+	@Override
+	public void show() {
+		StringBuilder sb = new StringBuilder("\nRate: {");
+		sb.append("id=").append(this.getId())
+		  .append(", recipeId=").append(this.getRecipeId())
+		  .append(", ingredient=").append(this.getIngr().getTitle())
+		  .append(", count=").append(this.getCount())
+		  .append("}\n");
+		System.out.println(sb.toString());
+	}	
 }

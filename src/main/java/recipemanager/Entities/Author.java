@@ -21,5 +21,13 @@ public class Author extends Entity{
 
 	public Author() {
 		super();
+	}
+
+	@Override
+	public void show() {
+		StringBuilder sb = new StringBuilder("\nAuthor: {");
+		sb.append("id=").append(this.getId())
+		  .append(", fio=").append(this.getFio())
+		  .append("}\n");
 	}	
 }

@@ -1,6 +1,6 @@
 package recipemanager.Entities;
 
-public class Entity {
+public abstract class Entity {
 	private int id;
 	
 	public Entity(int id) {
@@ -16,5 +16,7 @@ public class Entity {
 
 	public void setId(int id) {
 		this.id = id;
-	}	
+	}
+	
+	public abstract void show();
 }

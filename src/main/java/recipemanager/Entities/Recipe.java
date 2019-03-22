@@ -140,5 +140,23 @@ public class Recipe extends Entity {
 
 	public void setServingCount(int servingCount) {
 		this.servingCount = servingCount;
+	}
+
+
+	@Override
+	public void show() {
+		StringBuilder sb = new StringBuilder("\nRecipe: {");
+		sb.append("id=").append(this.getId())
+		  .append(", title=").append(this.getTitle())
+		  .append(", cookTime=").append(this.getCookTime())
+		  .append(", caloricity=").append(this.getCaloricity())
+		  .append(", servingCount=").append(this.getServingCount())
+		  .append(", section=").append(this.getSection())
+		  .append(", author=").append(this.getAuthor().getFio())
+		  .append(", kitchen=").append(this.getKitchen())
+		  .append(", stepsCount=").append(this.getSteps().size())
+		  .append(", ratesCount=").append(this.getRates().size())
+		  .append("}\n");
+		System.out.println(sb.toString());
 	}  
 }
