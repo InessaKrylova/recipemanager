@@ -46,7 +46,7 @@ public class RecipeDAO {
         if (recipe == null) {
         	System.out.println("Recipe is not created");
         } else {
-        	recipe.show();
+        	recipe.toString();
         }
     	return recipe;
     }
@@ -83,10 +83,11 @@ public class RecipeDAO {
         } catch (Exception ex) {
         	System.out.println(EXCEPTION_IN_RESULTSET);
         }
-        if (recipe == null)
-        	System.out.println("Recipe is not found");
-        else
-        	recipe.show();
+        if (recipe == null) {
+			System.out.println("Recipe is not found");
+		} else {
+			recipe.toString();
+		}
         return recipe;
     }
     

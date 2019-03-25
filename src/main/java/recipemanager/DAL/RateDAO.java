@@ -39,7 +39,7 @@ public class RateDAO {
         }
         
         for (Rate rate : list) {
-        	rate.show();
+        	rate.toString();
         }
         return list;
     }
@@ -64,7 +64,7 @@ public class RateDAO {
         if (rate == null) 
         	System.out.println("Ingredient is not found");
         else 
-        	rate.show();
+        	rate.toString();
         return rate;
     }
     
@@ -86,7 +86,7 @@ public class RateDAO {
         	System.out.println(EXCEPTION_IN_RESULTSET);
         }      
         for (Rate rate : list) {
-        	rate.show();
+        	rate.toString();
         }
         return list;
     }
@@ -116,7 +116,7 @@ public class RateDAO {
     	if (rate == null) 
     		System.out.println("Rate is not created");
     	else
-    		rate.show();
+    		rate.toString();
         return rate;
     }    
     

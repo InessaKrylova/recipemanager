@@ -83,7 +83,7 @@ public class StepDAO {
         if (step == null) 
         	System.out.println("Step is not found");
         else 
-        	step.show();
+        	step.toString();
     	return step;
     }
     
@@ -104,11 +104,12 @@ public class StepDAO {
 	    } catch (Exception ex) {
 	    	System.out.println(EXCEPTION_IN_STATEMENT);
 	    } 
-    	if (step == null)
-    		System.out.println("Step is not created");
-    	else
-    		step.show();
-        return step;
+    	if (step == null) {
+			System.out.println("Step is not created");
+		} else {
+			step.toString();
+		}
+    	return step;
     }
     
     public void remove(int id){

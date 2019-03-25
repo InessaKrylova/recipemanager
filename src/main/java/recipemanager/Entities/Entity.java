@@ -17,6 +17,4 @@ public abstract class Entity {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public abstract void show();
 }

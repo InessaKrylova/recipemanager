@@ -148,7 +148,7 @@ public class Recipe extends Entity {
 
 
 	@Override
-	public void show() {
+	public String toString() {
 		StringBuilder sb = new StringBuilder("\nRecipe: {");
 		sb.append("id=").append(this.getId())
 		  .append(", title=").append(this.getTitle())
@@ -162,5 +162,6 @@ public class Recipe extends Entity {
 		  .append(", ratesCount=").append(this.getRates().size())
 		  .append("}\n");
 		System.out.println(sb.toString());
+		return sb.toString();
 	}  
 }

@@ -42,7 +42,7 @@ public class Step extends Entity{
 	}
 
 	@Override
-	public void show() {
+	public String toString() {
 		StringBuilder sb = new StringBuilder("\nStep: {");
 		sb.append("id=").append(this.getId())
 		  .append(", number=").append(this.getNumber())
@@ -50,5 +50,6 @@ public class Step extends Entity{
 		  .append(", recipeId=").append(this.getRecipeId())
 		  .append("}\n");
 		System.out.println(sb.toString());
+		return sb.toString();
 	}  
 }

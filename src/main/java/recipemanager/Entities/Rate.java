@@ -37,7 +37,7 @@ public class Rate extends Entity {
 	}
 	
 	@Override
-	public void show() {
+	public String toString() {
 		StringBuilder sb = new StringBuilder("\nRate: {");
 		sb.append("id=").append(this.getId())
 		  .append(", recipeId=").append(this.getRecipeId())
@@ -45,5 +45,6 @@ public class Rate extends Entity {
 		  .append(", count=").append(this.getCount())
 		  .append("}\n");
 		System.out.println(sb.toString());
+		return sb.toString();
 	}	
 }

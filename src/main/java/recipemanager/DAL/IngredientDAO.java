@@ -29,7 +29,7 @@ public class IngredientDAO {
         if (ingredient == null) 
         	System.out.println("Ingredient is not found");
         else 
-        	ingredient.show();
+        	ingredient.toString();
         return ingredient;
     }
 
@@ -50,7 +50,7 @@ public class IngredientDAO {
         }
     	System.out.println("All ingredients:");
     	for (Ingredient ingredient : list) {
-    		ingredient.show();
+    		ingredient.toString();
     	}
         return list;
     }
@@ -73,7 +73,7 @@ public class IngredientDAO {
         if (ingredient == null) 
         	System.out.println("Ingredient is not found");
         else 
-        	ingredient.show();
+        	ingredient.toString();
         return ingredient;
     }
     
@@ -96,7 +96,7 @@ public class IngredientDAO {
         if (ingredient == null) 
         	System.out.println("Ingredient is not created");
         else 
-        	ingredient.show();
+        	ingredient.toString();
         return ingredient;
     }     
     

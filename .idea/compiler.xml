@@ -8,11 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="maven-archiver" />
         <module name="RecipeManager (1)" />
+        <module name="RecipeManager (2)" />
+        <module name="RecipeManager (3)" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="RecipeManager (2)" target="1.5" />
-      <module name="RecipeManager (3)" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

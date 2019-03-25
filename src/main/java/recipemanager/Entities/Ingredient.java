@@ -31,12 +31,13 @@ public class Ingredient extends Entity{
 	}
 
 	@Override
-	public void show() {
+	public String toString() {
 		StringBuilder sb = new StringBuilder("\nIngredient: {");
 		sb.append("id=").append(this.getId())
 		  .append(", title=").append(this.getTitle())
 		  .append(", caloricity=").append(this.getCaloricity())
 		  .append("}\n");
 		System.out.println(sb.toString());
+		return sb.toString();
 	}      
 }

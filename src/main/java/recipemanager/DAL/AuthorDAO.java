@@ -31,7 +31,7 @@ public class AuthorDAO {
 		}
         System.out.println("Authors list:");
         for (Author author : list) {
-        	author.show();
+        	author.toString();
         }
         return list;            
     }
@@ -47,10 +47,11 @@ public class AuthorDAO {
         } catch (Exception ex) {
         	System.out.println(EXCEPTION_IN_RESULTSET);
         }
-        if (author == null) 
-        	System.out.println("Author is not found");
-        else 
-        	author.show();
+        if (author == null) {
+			System.out.println("Author is not found");
+		} else {
+			author.toString();
+		}
         return author;
     }
     
@@ -69,10 +70,11 @@ public class AuthorDAO {
     	 } catch (Exception ex) {
     		 System.out.println(EXCEPTION_IN_STATEMENT);
     	 } 
-    	 if (author == null) 
-         	System.out.println("Author is not created");
-         else 
-         	author.show();
+    	 if (author == null) {
+			 System.out.println("Author is not created");
+		 } else {
+			 author.toString();
+		 }
          return author;
     }
 }
