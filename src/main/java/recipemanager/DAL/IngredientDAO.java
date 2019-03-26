@@ -26,10 +26,9 @@ public class IngredientDAO {
         } catch (Exception ex) {
             System.out.println(EXCEPTION_IN_RESULTSET);
         }
-        if (ingredient == null) 
-        	System.out.println("Ingredient is not found");
-        else 
-        	ingredient.toString();
+		System.out.println(ingredient == null
+				? "Ingredient is not found"
+				: ingredient.toString());
         return ingredient;
     }
 
@@ -50,8 +49,8 @@ public class IngredientDAO {
         }
     	System.out.println("All ingredients:");
     	for (Ingredient ingredient : list) {
-    		ingredient.toString();
-    	}
+			System.out.println(ingredient.toString());
+		}
         return list;
     }
 
@@ -70,34 +69,32 @@ public class IngredientDAO {
 	    } catch (Exception ex) {
 	        System.out.println(EXCEPTION_IN_STATEMENT);
 	    }
-        if (ingredient == null) 
-        	System.out.println("Ingredient is not found");
-        else 
-        	ingredient.toString();
+		System.out.println(ingredient == null
+				? "Ingredient is not found"
+				: ingredient.toString());
         return ingredient;
     }
     
     public Ingredient create(String title, int caloricity) {
-        Ingredient ingredient = null;
-    	try (Connection connection = DBConnector.openConnection();
-    		 PreparedStatement statement = connection.prepareStatement(CREATE_INGREDIENT)) {
-	        statement.setString(1, title);
-	        statement.setInt(2, caloricity);
-    		try (ResultSet resultSet = statement.executeQuery()) {
-	            while(resultSet.next()) {
-	            	ingredient = new Ingredient(resultSet.getInt("id"), title, caloricity);
-	            }
-	        } catch (SQLException ex) {
-                System.out.println(EXCEPTION_IN_RESULTSET);
-            }
-        } catch (Exception ex) {
-            System.out.println(EXCEPTION_IN_STATEMENT);
-        }
-        if (ingredient == null) 
-        	System.out.println("Ingredient is not created");
-        else 
-        	ingredient.toString();
-        return ingredient;
+		Ingredient ingredient = null;
+		try (Connection connection = DBConnector.openConnection();
+			 PreparedStatement statement = connection.prepareStatement(CREATE_INGREDIENT)) {
+			statement.setString(1, title);
+			statement.setInt(2, caloricity);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				while (resultSet.next()) {
+					ingredient = new Ingredient(resultSet.getInt("id"), title, caloricity);
+				}
+			} catch (SQLException ex) {
+				System.out.println(EXCEPTION_IN_RESULTSET);
+			}
+		} catch (Exception ex) {
+			System.out.println(EXCEPTION_IN_STATEMENT);
+		}
+		System.out.println(ingredient == null
+				? "Ingredient is not created"
+				: ingredient.toString());
+		return ingredient;
     }     
     
     public void remove(int id){

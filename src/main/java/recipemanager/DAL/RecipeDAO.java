@@ -42,12 +42,10 @@ public class RecipeDAO {
 	        }
 	    } catch (Exception ex) {
 	    	System.out.println(EXCEPTION_IN_STATEMENT);
-	    }       
-        if (recipe == null) {
-        	System.out.println("Recipe is not created");
-        } else {
-        	recipe.toString();
-        }
+	    }
+		System.out.println(recipe == null
+			? "Recipe is not created"
+			: recipe.toString());
     	return recipe;
     }
 	
@@ -83,11 +81,10 @@ public class RecipeDAO {
         } catch (Exception ex) {
         	System.out.println(EXCEPTION_IN_RESULTSET);
         }
-        if (recipe == null) {
-			System.out.println("Recipe is not found");
-		} else {
-			recipe.toString();
-		}
+
+		System.out.println(recipe == null
+			? "Recipe is not found"
+			: recipe.toString());
         return recipe;
     }
     
@@ -116,25 +113,5 @@ public class RecipeDAO {
         System.out.println(list.size()+" recipes found");
         return list;
     }
-
-    /*public void addStep(Recipe recipe, int number, String description) {
-	    Step step = new StepDAO().create(recipe.getId(), number, description);
-    	recipe.addStep(step); 
-	}
-
-	public void removeStep(Recipe recipe, int stepId) {	
-	    new StepDAO().remove(stepId);
-	    recipe.removeStep(stepId);
-	}
-
-	public void addRate(Recipe recipe, int ingredientId, double count) {
-	    Rate rate = new RateDAO().create(recipe.getId(), ingredientId, count);
-		recipe.addRate(rate);	    
-	}
-	
-	public void removeRate(Recipe recipe, int rateId) {
-	    new RateDAO().remove(rateId);
-	    recipe.removeRate(rateId);
-	} */
 
 }

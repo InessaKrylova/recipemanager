@@ -146,7 +146,6 @@ public class Recipe extends Entity {
 		this.servingCount = servingCount;
 	}
 
-
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("\nRecipe: {");
@@ -161,7 +160,6 @@ public class Recipe extends Entity {
 		  .append(", stepsCount=").append(this.getSteps().size())
 		  .append(", ratesCount=").append(this.getRates().size())
 		  .append("}\n");
-		System.out.println(sb.toString());
 		return sb.toString();
 	}  
 }

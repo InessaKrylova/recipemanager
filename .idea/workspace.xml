@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/../CollectionsTest/src/App.java" description="public static void main(String[] args) {" line="3" />
+    <bookmark url="file://$PROJECT_DIR$/../CollectionsTest/src/App.java" description="FileScanner fileScanner = new FileScanner();" line="4" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2105e4ed-2db4-4c8f-9dc0-f294f4a55a20" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/AuthorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/AuthorDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/IngredientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/IngredientDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/RateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/RateDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/RecipeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/RecipeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/StepDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/DAL/StepDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Author.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Ingredient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Rate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Recipe.java" afterDir="false" />
@@ -26,26 +26,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/common/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/StepDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -62,15 +43,15 @@
         <option value="$PROJECT_DIR$/src/main/java/recipemanager/DAL/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Author.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Ingredient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Rate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Recipe.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Step.java" />
         <option value="$PROJECT_DIR$/src/main/java/recipemanager/DAL/AuthorDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Ingredient.java" />
         <option value="$PROJECT_DIR$/src/main/java/recipemanager/DAL/IngredientDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Rate.java" />
         <option value="$PROJECT_DIR$/src/main/java/recipemanager/DAL/RateDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recipemanager/DAL/RecipeDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Step.java" />
         <option value="$PROJECT_DIR$/src/main/java/recipemanager/DAL/StepDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/recipemanager/Entities/Recipe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/recipemanager/DAL/RecipeDAO.java" />
       </list>
     </option>
   </component>
@@ -96,7 +77,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -168,18 +148,19 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553520616675" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553607775699" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -233,18 +214,19 @@
       <workItem from="1553178686953" duration="47000" />
       <workItem from="1553179512677" duration="493000" />
       <workItem from="1553516550543" duration="19000" />
-      <workItem from="1553516619734" duration="951000" />
+      <workItem from="1553516619734" duration="1118000" />
+      <workItem from="1553522594043" duration="623000" />
+      <workItem from="1553604441470" duration="2879000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4735000" />
+    <option name="totallyTimeSpent" value="8404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18763326" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19189766" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -278,17 +260,21 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/StepDAO.java</url>
+          <line>111</line>
+          <properties class="recipemanager.DAL.StepDAO" method="remove">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -303,27 +289,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Author.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Rate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Ingredient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -331,59 +296,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Recipe.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="164" column="29" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/IngredientDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/AuthorDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="764">
-          <caret line="75" column="28" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/RateDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1659">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/RecipeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1607">
-          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+        <state relative-caret-position="441">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/common/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="357">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/AuthorDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Author.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/IngredientDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="102" column="23" lean-forward="true" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
+          <folding>
+            <element signature="method#getById#0;class#IngredientDAO#0" />
+            <element signature="method#getAllIngredients#0;class#IngredientDAO#0" />
+            <element signature="method#getByTitle#0;class#IngredientDAO#0" />
+            <element signature="method#create#0;class#IngredientDAO#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Ingredient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Rate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/RateDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="121" column="29" lean-forward="true" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+          <folding>
+            <element signature="method#getRatesByRecId#0;class#RateDAO#0" />
+            <element signature="method#getById#0;class#RateDAO#0" />
+            <element signature="method#getAllRates#0;class#RateDAO#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Step.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        <state relative-caret-position="756">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/StepDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+        <state relative-caret-position="462">
+          <caret line="112" column="22" lean-forward="true" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+          <folding>
+            <element signature="method#getStepsMapByRecId#0;class#StepDAO#0" />
+            <element signature="method#getStepsListByRecId#0;class#StepDAO#0" />
+            <element signature="method#getStepById#0;class#StepDAO#0" />
+            <element signature="method#create#0;class#StepDAO#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/Entities/Recipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1460">
+          <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
+          <folding>
+            <element signature="method#toString#0;class#Recipe#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recipemanager/DAL/RecipeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="89" column="4" lean-forward="true" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#create#0;class#RecipeDAO#0" />
+            <element signature="method#remove#0;class#RecipeDAO#0" />
+            <element signature="method#getById#0;class#RecipeDAO#0" />
+            <element signature="method#getAllRecipes#0;class#RecipeDAO#0" />
+          </folding>
         </state>
       </provider>
     </entry>

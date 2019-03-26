@@ -77,13 +77,12 @@ public class StepDAO {
            		resultSet.getInt("recipe_id")
                );
            }
-       } catch (Exception ex) {
+        } catch (Exception ex) {
        		System.out.println(EXCEPTION_IN_RESULTSET);
-       } 
-        if (step == null) 
-        	System.out.println("Step is not found");
-        else 
-        	step.toString();
+        }
+		System.out.println(step == null
+				? "Step is not found"
+				: step.toString());
     	return step;
     }
     
@@ -103,12 +102,10 @@ public class StepDAO {
 	        }
 	    } catch (Exception ex) {
 	    	System.out.println(EXCEPTION_IN_STATEMENT);
-	    } 
-    	if (step == null) {
-			System.out.println("Step is not created");
-		} else {
-			step.toString();
-		}
+	    }
+		System.out.println(step == null
+				? "Step is not created"
+				: step.toString());
     	return step;
     }
     

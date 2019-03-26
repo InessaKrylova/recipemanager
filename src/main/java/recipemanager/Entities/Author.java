@@ -29,7 +29,6 @@ public class Author extends Entity{
 		sb.append("id=").append(this.getId())
 		  .append(", fio=").append(this.getFio())
 		  .append("}\n");
-		System.out.println(sb.toString());
 		return sb.toString();
 	}	
 }

@@ -37,7 +37,6 @@ public class Ingredient extends Entity{
 		  .append(", title=").append(this.getTitle())
 		  .append(", caloricity=").append(this.getCaloricity())
 		  .append("}\n");
-		System.out.println(sb.toString());
 		return sb.toString();
 	}      
 }

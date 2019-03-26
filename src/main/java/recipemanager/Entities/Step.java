@@ -49,7 +49,6 @@ public class Step extends Entity{
 		  .append(", description=").append(this.getDescription())
 		  .append(", recipeId=").append(this.getRecipeId())
 		  .append("}\n");
-		System.out.println(sb.toString());
 		return sb.toString();
 	}  
 }

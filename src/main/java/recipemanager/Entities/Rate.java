@@ -23,10 +23,10 @@ public class Rate extends Entity {
 	public void setRecipeId(int recipeId) {
 		this.recipeId = recipeId;
 	}
-	public Ingredient getIngr() {
+	public Ingredient getIngredient() {
 		return ingredient;
 	}
-	public void setIngr(Ingredient ingredient) {
+	public void setIngredient(Ingredient ingredient) {
 		this.ingredient = ingredient;
 	}
 	public double getCount() {
@@ -41,10 +41,9 @@ public class Rate extends Entity {
 		StringBuilder sb = new StringBuilder("\nRate: {");
 		sb.append("id=").append(this.getId())
 		  .append(", recipeId=").append(this.getRecipeId())
-		  .append(", ingredient=").append(this.getIngr().getTitle())
+		  .append(", ingredient=").append(this.getIngredient().getTitle())
 		  .append(", count=").append(this.getCount())
 		  .append("}\n");
-		System.out.println(sb.toString());
 		return sb.toString();
 	}	
 }
